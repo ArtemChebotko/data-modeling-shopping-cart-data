@@ -7,10 +7,10 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+ <a href='command:katapod.loadPage?[{"step":"step9"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 7 of 7</span>
+<span class="step-count"> Step 10 of 10</span>
  <a href='command:katapod.loadPage?[{"step":"finish"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
@@ -36,7 +36,7 @@ WHERE sensor = 's1003'
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+ <a href='command:katapod.loadPage?[{"step":"step9"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
  <a href='command:katapod.loadPage?[{"step":"finish"}]'
