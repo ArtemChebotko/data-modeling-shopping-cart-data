@@ -20,57 +20,57 @@
 
 <div class="step-title">Create tables</div>
 
-✅ Create table `networks`:
+
+✅ Create table `carts_by_user`:
 ```
-CREATE TABLE IF NOT EXISTS networks (
-  bucket TEXT,
+CREATE TABLE IF NOT EXISTS carts_by_user (
+  user_id TEXT,
+  cart_name TEXT,
+  cart_id UUID,
+  cart_is_active BOOLEAN,
+  user_email TEXT STATIC,
+  PRIMARY KEY ((user_id),cart_name,cart_id)
+);
+```
+
+✅ Create table `items_by_id`:
+```
+CREATE TABLE IF NOT EXISTS items_by_id (
+  id TEXT,
   name TEXT,
   description TEXT,
-  region TEXT,
-  num_sensors INT,
-  PRIMARY KEY ((bucket),name)
+  price DECIMAL,
+  PRIMARY KEY ((id))
 );
 ```
 
-✅ Create table `temperatures_by_network`:
+✅ Create materialized view `items_by_name`:
 ```
-CREATE TABLE IF NOT EXISTS temperatures_by_network (
-  network TEXT,
-  week DATE,
-  date_hour TIMESTAMP,
-  sensor TEXT,
-  avg_temperature FLOAT,
-  latitude DECIMAL,
-  longitude DECIMAL,
-  PRIMARY KEY ((network,week),date_hour,sensor)
-) WITH CLUSTERING ORDER BY (date_hour DESC, sensor ASC);
-```
-
-✅ Create table `sensors_by_network`:
-```
-CREATE TABLE IF NOT EXISTS sensors_by_network (
-  network TEXT,
-  sensor TEXT,
-  latitude DECIMAL,
-  longitude DECIMAL,
-  characteristics MAP<TEXT,TEXT>,
-  PRIMARY KEY ((network),sensor)
-);
+CREATE MATERIALIZED VIEW IF NOT EXISTS items_by_name 
+  AS 
+    SELECT * FROM items_by_id
+    WHERE name IS NOT NULL 
+      AND id IS NOT NULL
+  PRIMARY KEY ((name), id);
 ```
 
 
-✅ Create table `temperatures_by_sensor`:
+✅ Create table `items_by_cart`:
 ```
-CREATE TABLE IF NOT EXISTS temperatures_by_sensor (
-  sensor TEXT,
-  date DATE,
+CREATE TABLE IF NOT EXISTS items_by_cart (
+  cart_id UUID,
   timestamp TIMESTAMP,
-  value FLOAT,
-  PRIMARY KEY ((sensor,date),timestamp)
-) WITH CLUSTERING ORDER BY (timestamp DESC);
+  item_id TEXT,
+  item_name TEXT,
+  item_description TEXT,
+  item_price DECIMAL,
+  quantity INT,
+  cart_subtotal DECIMAL STATIC,
+  PRIMARY KEY ((cart_id),timestamp,item_id)
+) WITH CLUSTERING ORDER BY (timestamp DESC, item_id ASC);
 ```
 
-✅ Verify that the four tables have been created:
+✅ Verify that the tables and materialized view have been created:
 ```
 DESCRIBE TABLES;
 ```

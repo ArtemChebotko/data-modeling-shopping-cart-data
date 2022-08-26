@@ -18,18 +18,41 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q4</div>
+<div class="step-title">Design update U1</div>
 
-✅ Find raw measurements for sensor `s1003` on `2020-07-06`; order by timestamp (desc):
+✅ Add item `Box2` into active cart `19925cc1-4f8b-4a44-b893-2a49a8434fc8` and update the cart subtotal to `111.50`:
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, value 
-FROM temperatures_by_sensor
-WHERE sensor = 's1003'
-  AND date   = '2020-07-06';
+BEGIN BATCH
+  INSERT INTO items_by_cart (
+    cart_id,
+    timestamp,
+    item_id,
+    item_name,
+    item_description,
+    item_price,
+    quantity)
+  VALUES (
+    19925cc1-4f8b-4a44-b893-2a49a8434fc8,
+    TOTIMESTAMP(NOW()),
+    'Box2',
+    'Chocolates',
+    '25 gourmet chocolates from our collection',
+    60.00,
+    1);
+  UPDATE items_by_cart 
+  SET cart_subtotal = 111.50
+  WHERE cart_id = 19925cc1-4f8b-4a44-b893-2a49a8434fc8
+  IF cart_subtotal = 51.50;
+APPLY BATCH;
+
+SELECT timestamp, item_id, item_price, 
+       quantity, cart_subtotal 
+FROM items_by_cart
+WHERE cart_id = 19925cc1-4f8b-4a44-b893-2a49a8434fc8; 
 ```
 
 </details>

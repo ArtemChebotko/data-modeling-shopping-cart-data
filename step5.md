@@ -18,63 +18,18 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q2</div>
+<div class="step-title">Design query Q4</div>
 
-✅ Find hourly average temperatures for every sensor in network `forest-net` and date range [`2020-07-05`,`2020-07-06`] within the week of `2020-07-05`; order by date (desc) and hour (desc):
-
+✅ Find ids and names of all shopping carts that belong to user `jen`; order by cart name (asc):
+ 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT date_hour, avg_temperature, 
-       latitude, longitude, sensor 
-FROM temperatures_by_network
-WHERE network    = 'forest-net'
-  AND week       = '2020-07-05'
-  AND date_hour >= '2020-07-05'
-  AND date_hour  < '2020-07-07';
-```
-
-</details>
-
-<br/>
-
-✅ Find hourly average temperatures for every sensor in network `forest-net` and date range [`2020-07-04`,`2020-07-06`] within the weeks of `2020-06-28` and `2020-07-05`; order by date (desc) and hour (desc):
-
-<details>
-  <summary>Solution 1</summary>
-
-```
-SELECT date_hour, avg_temperature, 
-       latitude, longitude, sensor 
-FROM temperatures_by_network
-WHERE network    = 'forest-net'
-  AND week       = '2020-07-05'
-  AND date_hour >= '2020-07-04'
-  AND date_hour  < '2020-07-07';
-  
-SELECT date_hour, avg_temperature, 
-       latitude, longitude, sensor 
-FROM temperatures_by_network
-WHERE network    = 'forest-net'
-  AND week       = '2020-06-28'
-  AND date_hour >= '2020-07-04'
-  AND date_hour  < '2020-07-07';  
-```
-
-</details>
-
-<details>
-  <summary>Solution 2</summary>
-
-```
-SELECT date_hour, avg_temperature, 
-       latitude, longitude, sensor 
-FROM temperatures_by_network
-WHERE network    = 'forest-net'
-  AND week      IN ('2020-07-05','2020-06-28')
-  AND date_hour >= '2020-07-04'
-  AND date_hour  < '2020-07-07';  
+SELECT user_id, cart_name, 
+       cart_id, cart_is_active
+FROM carts_by_user
+WHERE user_id = 'jen';
 ```
 
 </details>

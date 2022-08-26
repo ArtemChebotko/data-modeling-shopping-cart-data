@@ -18,18 +18,17 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q4</div>
+<div class="step-title">Design query Q3</div>
 
-✅ Find raw measurements for sensor `s1003` on `2020-07-06`; order by timestamp (desc):
+✅ Find all information about items with name `Chocolate Cake`:
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, value 
-FROM temperatures_by_sensor
-WHERE sensor = 's1003'
-  AND date   = '2020-07-06';
+SELECT * 
+FROM items_by_name
+WHERE name = 'Chocolate Cake';
 ```
 
 </details>

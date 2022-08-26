@@ -18,18 +18,18 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q4</div>
+<div class="step-title">Design query Q5</div>
 
-✅ Find raw measurements for sensor `s1003` on `2020-07-06`; order by timestamp (desc):
+✅ Find all items and their subtotal for a cart with id `19925cc1-4f8b-4a44-b893-2a49a8434fc8`; order items by timestamp (desc):
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, value 
-FROM temperatures_by_sensor
-WHERE sensor = 's1003'
-  AND date   = '2020-07-06';
+SELECT timestamp, item_id, item_price, 
+       quantity, cart_subtotal 
+FROM items_by_cart
+WHERE cart_id = 19925cc1-4f8b-4a44-b893-2a49a8434fc8; 
 ```
 
 </details>
