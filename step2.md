@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS items_by_cart (
 
 ✅ Verify that the tables and materialized view have been created:
 ```
-DESCRIBE TABLES;
+DESCRIBE SCHEMA;
 ```
 
 <!-- NAVIGATION -->
