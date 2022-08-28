@@ -59,10 +59,10 @@ WHERE cart_id = 19925cc1-4f8b-4a44-b893-2a49a8434fc8;
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step9"}]'
+ <a href='command:katapod.loadPage?[{"step":"step9-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"finish"}]'
+ <a href='command:katapod.loadPage?[{"step":"finish-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
