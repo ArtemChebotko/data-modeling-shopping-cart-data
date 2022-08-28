@@ -7,39 +7,38 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-astra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 9 of 10</span>
- <a href='command:katapod.loadPage?[{"step":"step10"}]'
+<span class="step-count"> Step 7 of 10</span>
+ <a href='command:katapod.loadPage?[{"step":"step8-astra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q5</div>
+<div class="step-title">Design query Q2</div>
 
-✅ Find all items and their subtotal for a cart with id `19925cc1-4f8b-4a44-b893-2a49a8434fc8`; order items by timestamp (desc):
+✅ Find all information about an item with id `Box2`:
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, item_id, item_price, 
-       quantity, cart_subtotal 
-FROM items_by_cart
-WHERE cart_id = 19925cc1-4f8b-4a44-b893-2a49a8434fc8; 
+SELECT * 
+FROM items_by_id
+WHERE id = 'Box2';
 ```
 
 </details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-astra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step10"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-astra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

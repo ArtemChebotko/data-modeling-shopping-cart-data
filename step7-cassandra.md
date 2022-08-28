@@ -7,48 +7,39 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"intro"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-cassandra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 1 of 10</span>
- <a href='command:katapod.loadPage?[{"step":"step2-cassandra"}]' 
+<span class="step-count"> Step 7 of 10</span>
+ <a href='command:katapod.loadPage?[{"step":"step8-cassandra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Connect to Cassandra and create a keyspace</div>
+<div class="step-title">Design query Q2</div>
 
-✅ Start Cassandra:
-```
-./cassandra
-```
+✅ Find all information about an item with id `Box2`:
 
-✅ Start the CQL shell:
-```
-cqlsh
-```
+<details>
+  <summary>Solution</summary>
 
-✅ Create the `shopping_cart_data` keyspace:
 ```
-CREATE KEYSPACE shopping_cart_data
-WITH replication = {
-  'class': 'NetworkTopologyStrategy', 
-  'DC-Houston': 1 };
+SELECT * 
+FROM items_by_id
+WHERE id = 'Box2';
 ```
 
-✅ Set the current working keyspace:
-```
-USE shopping_cart_data;
-```
+</details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"intro"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step2-cassandra"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
+

@@ -7,38 +7,39 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step7"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-cassandra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 8 of 10</span>
- <a href='command:katapod.loadPage?[{"step":"step9"}]'
+<span class="step-count"> Step 9 of 10</span>
+ <a href='command:katapod.loadPage?[{"step":"step10-cassandra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q3</div>
+<div class="step-title">Design query Q5</div>
 
-✅ Find all information about items with name `Chocolate Cake`:
+✅ Find all items and their subtotal for a cart with id `19925cc1-4f8b-4a44-b893-2a49a8434fc8`; order items by timestamp (desc):
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT * 
-FROM items_by_name
-WHERE name = 'Chocolate Cake';
+SELECT timestamp, item_id, item_price, 
+       quantity, cart_subtotal 
+FROM items_by_cart
+WHERE cart_id = 19925cc1-4f8b-4a44-b893-2a49a8434fc8; 
 ```
 
 </details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step7"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step9"}]'
+ <a href='command:katapod.loadPage?[{"step":"step10-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

@@ -11,7 +11,7 @@
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 <span class="step-count"> Step 1 of 10</span>
- <a href='command:katapod.loadPage?[{"step":"step2"}]' 
+ <a href='command:katapod.loadPage?[{"step":"step2-astra"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -72,7 +72,7 @@ If the command fails, please revisit the previous steps to make sure that the da
  <a href='command:katapod.loadPage?[{"step":"intro"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step2"}]'
+ <a href='command:katapod.loadPage?[{"step":"step2-astra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

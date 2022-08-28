@@ -7,39 +7,38 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step4"}]'
+ <a href='command:katapod.loadPage?[{"step":"step7-cassandra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 5 of 10</span>
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+<span class="step-count"> Step 8 of 10</span>
+ <a href='command:katapod.loadPage?[{"step":"step9-cassandra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q4</div>
+<div class="step-title">Design query Q3</div>
 
-✅ Find ids and names of all shopping carts that belong to user `jen`; order by cart name (asc):
- 
+✅ Find all information about items with name `Chocolate Cake`:
+
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT user_id, cart_name, 
-       cart_id, cart_is_active
-FROM carts_by_user
-WHERE user_id = 'jen';
+SELECT * 
+FROM items_by_name
+WHERE name = 'Chocolate Cake';
 ```
 
 </details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step4"}]'
+ <a href='command:katapod.loadPage?[{"step":"step7-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+ <a href='command:katapod.loadPage?[{"step":"step9-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
