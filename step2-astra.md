@@ -44,16 +44,16 @@ CREATE TABLE IF NOT EXISTS items_by_id (
 );
 ```
 
-✅ Create materialized view `items_by_name`:
+✅ Create table `items_by_name`:
 ```
-CREATE MATERIALIZED VIEW IF NOT EXISTS items_by_name 
-  AS 
-    SELECT * FROM items_by_id
-    WHERE name IS NOT NULL 
-      AND id IS NOT NULL
-  PRIMARY KEY ((name), id);
+CREATE TABLE IF NOT EXISTS items_by_name (
+  name TEXT,
+  id TEXT,  
+  description TEXT,
+  price DECIMAL,
+  PRIMARY KEY ((name), id)
+);
 ```
-
 
 ✅ Create table `items_by_cart`:
 ```
@@ -70,9 +70,9 @@ CREATE TABLE IF NOT EXISTS items_by_cart (
 ) WITH CLUSTERING ORDER BY (timestamp DESC, item_id ASC);
 ```
 
-✅ Verify that the tables and materialized view have been created:
+✅ Verify that the four tables have been created:
 ```
-DESCRIBE SCHEMA;
+DESCRIBE TABLES;
 ```
 
 <!-- NAVIGATION -->

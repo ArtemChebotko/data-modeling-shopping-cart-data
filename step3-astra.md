@@ -22,7 +22,7 @@
 
 ✅ Execute the CQL script to insert sample data:
 ```
-SOURCE 'assets/shopping_cart_data.cql'
+SOURCE 'assets/shopping_cart_dataset.cql'
 ```
 
 ✅ Retrieve all rows from table `carts_by_user`:
@@ -37,7 +37,7 @@ FROM carts_by_user;
 SELECT * FROM items_by_id;
 ```
 
-✅ Retrieve all rows from materialized view `items_by_name`:
+✅ Retrieve all rows from table `items_by_name`:
 ```
 SELECT * FROM items_by_name;                    
 ```
